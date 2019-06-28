@@ -6,25 +6,27 @@
 
 
 // generate a pseudo-random number using the formula next = (a ∗ cur + b) [n] 
-generateRandom(int a, int b, int m, int cur){
-	return (a*cur + b) %m
+public int generateRandom(int a, int b, int n, int cur){
+	return (a*cur + b) %n;
 }
 
+
 // generate n pseudo-random numbers
-generateNRandom(int a, int b, int m, int cur, int n){
+public int[] generateNRandom(int a, int b, int m, int cur, int n){
 	int[] result = new int[n];
-	for(int i in range(0,n)){
+	for(int i=0; i<n; i++){
 		cur = generateRandom(a,b,m,cur);
-		result[i]=cur
+		System.out.println(cur);
+		result[i]=cur;
 	}
 	return result;
 }
 
-// generate the nth pseudo-random number
-generateNthRandom(int a, int b, int m, int cur, int n){
-	for(int i in range(0,n)){
-		cur = generateRandom(a,b,cur);
-		result[i]=cur
+public void testRand(){
+	int[] randNumbers = generateNRandom(12,5,100,92,5);
+	for (int j = 0; j<randNumbers.length; j++){
+		System.out.printf("The %d number is %d\n",j+1,randNumbers[j]);
 	}
-	return cur
 }
+
+tesRand();
